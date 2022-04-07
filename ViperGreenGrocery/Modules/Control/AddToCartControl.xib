@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AddToCartControl" customModule="ViperGreenGrocery" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eoQ-4g-Pbc">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0E-y8-8tV">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
+                            <buttonConfiguration key="configuration" style="plain" title="ADD TO CART">
+                                <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="2"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="addToCard:" destination="iN0-l3-epB" eventType="touchUpInside" id="5VW-X9-zkS"/>
+                            </connections>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Rx-DT-uht">
+                            <rect key="frame" x="0.0" y="20" width="100" height="20"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxY-Zo-DGA">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="tYM-3E-iJc"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="+"/>
+                                    <connections>
+                                        <action selector="incrementButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="bQ3-ms-Fbg"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShX-Km-qUN">
+                                    <rect key="frame" x="30" y="0.0" width="40" height="20"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poN-0m-ioG">
+                                    <rect key="frame" x="70" y="0.0" width="30" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="wdZ-g5-ebf"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="-"/>
+                                    <connections>
+                                        <action selector="decrementButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="CSf-Vs-ipq"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="0.17942572594204967" green="0.38097748250672314" blue="0.23005526513047167" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="eoQ-4g-Pbc" secondAttribute="bottom" id="Ef4-QY-dsk"/>
+                <constraint firstItem="eoQ-4g-Pbc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="JhR-Wo-A0b"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eoQ-4g-Pbc" secondAttribute="trailing" id="cLn-VF-ghd"/>
+                <constraint firstItem="eoQ-4g-Pbc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="h6B-zx-TuA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addButton" destination="i0E-y8-8tV" id="86O-4F-C6K"/>
+                <outlet property="minusButton" destination="poN-0m-ioG" id="nMC-qh-Cnn"/>
+                <outlet property="plusButton" destination="SxY-Zo-DGA" id="6ss-ey-5iQ"/>
+                <outlet property="stepLabel" destination="ShX-Km-qUN" id="DFP-hx-F0u"/>
+            </connections>
+            <point key="canvasLocation" x="434.78260869565219" y="154.01785714285714"/>
+        </view>
+    </objects>
+</document>

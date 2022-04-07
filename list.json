@@ -1,0 +1,16 @@
+{"groceries": [
+    {
+        "sku-id": "1",
+        "title": "Apple",
+        "product_image": "apple",
+        "description": "lgsdlfg",
+        "price": "2.42"
+    },
+    {
+        "sku-id": "2",
+        "title": "Grape",
+        "product_image": "grape",
+        "description": "lgsdlvaffg",
+        "price": "3.12"
+    }
+]}
