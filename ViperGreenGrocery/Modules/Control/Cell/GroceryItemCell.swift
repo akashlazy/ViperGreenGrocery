@@ -39,7 +39,7 @@ class GroceryItemCell: UITableViewCell {
         self.lblDesc.text = vm.description
         self.lblPrice.text = vm.price
         self.imgView.image = UIImage(named: vm.image)
-        self.cartControl.configure(usingViewModel: AddCartViewModel(id: vm.id, stepValue: 0), cartClosure: addToCartClouser)
+        self.cartControl.configure(usingViewModel: vm.cartValue, cartClosure: addToCartClouser)
+        self.selectionStyle = .none
     }
-    
 }

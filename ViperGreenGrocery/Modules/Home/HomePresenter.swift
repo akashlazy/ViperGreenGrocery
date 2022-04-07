@@ -26,7 +26,7 @@ class HomePresenter {
 }
 
 extension HomePresenter: HomePresentation {
-
+    
     func onAddToCart(skuItem: SkuItem) {
         DispatchQueue.global(qos: .background).async {
             let updated = self.interactor.addToCart(skuItem: skuItem)
@@ -36,8 +36,9 @@ extension HomePresenter: HomePresentation {
     
     func viewDidLoad() {
         self.interactor.getGroceries { result in
-            let groceryList = result.groceries.compactMap { grocery in
-                GroceryItemViewModel(using: grocery)
+            let groceryList = result.groceries.compactMap { grocery -> GroceryItemViewModel in
+                let cartItem = self.interactor.getCartItem(skuId: grocery.id)
+                return GroceryItemViewModel(using: grocery, cartItem: cartItem)
             }
             self.view?.updateGroceries(groceryList: groceryList)
         }
@@ -50,12 +51,14 @@ struct GroceryItemViewModel {
     let image: String
     let description: String
     let price: String
+    let cartValue: CartValueViewModel
     
-    init(using groceryModel: Grocery) {
+    init(using groceryModel: Grocery, cartItem: CartItem) {
         self.id = groceryModel.id
         self.title = groceryModel.title
         self.image = groceryModel.image
         self.description = groceryModel.description
         self.price = "$ \(groceryModel.price)"
+        self.cartValue = CartValueViewModel(id: cartItem.skuid, stepValue: cartItem.value)
     }
 }

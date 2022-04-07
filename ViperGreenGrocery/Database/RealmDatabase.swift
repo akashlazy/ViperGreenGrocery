@@ -33,7 +33,8 @@ extension RealmDatabase: CartDB {
         }
         return true
     }
-    func deleteCart(usingskuId skuId: String) -> Bool {
+    
+    func deleteCart(using skuId: String) -> Bool {
         do {
             let realm = try Realm()
             try realm.write {
@@ -60,7 +61,7 @@ extension RealmDatabase: CartDB {
         }
     }
     
-    func getCartItem(usingskuId skuId: String) -> CartItem {
+    func getCartItem(using skuId: String) -> CartItem {
         let realm = try! Realm()
         guard let realmObject = realm.objects(RealmCartItem.self).first(where: { $0.skuid == skuId }) else {
             return CartItem(skuid: skuId, value: 0)

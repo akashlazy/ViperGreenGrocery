@@ -12,6 +12,6 @@ typealias CartCountClosure = (Int) -> Void
 protocol CartDB {
     func updateCart(using cartItem: CartItem) -> Bool
     func getCount(closure: @escaping CartCountClosure)
-    func deleteCart(usingskuId skuId: String) -> Bool
-    func getCartItem(usingskuId skuId: String) -> CartItem
+    func deleteCart(using skuId: String) -> Bool
+    func getCartItem(using skuId: String) -> CartItem
 }

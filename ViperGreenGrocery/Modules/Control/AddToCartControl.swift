@@ -20,7 +20,7 @@ class AddToCartControl: UIControl, ViewLoadable {
     
     var closure: CartClosure?
     
-    var viewModel: AddCartViewModel! {
+    var viewModel: CartValueViewModel! {
         didSet {
             let isHidden = viewModel.showStepper
             self.addButton.isHidden = isHidden
@@ -44,14 +44,14 @@ class AddToCartControl: UIControl, ViewLoadable {
         self.closure?((viewModel.id, viewModel.stepValue))
     }
     
-    func configure(usingViewModel viewModel: AddCartViewModel, cartClosure: @escaping CartClosure) {
+    func configure(usingViewModel viewModel: CartValueViewModel, cartClosure: @escaping CartClosure) {
         self.viewModel = viewModel
         addButton.setTitle(viewModel.title, for: .normal)
         self.closure = cartClosure
     }
 }
 
-struct AddCartViewModel {
+struct CartValueViewModel {
     let id: String
     let title: String = "ADD TO CART"
     let stepValue: Int
@@ -64,17 +64,17 @@ struct AddCartViewModel {
     }
 }
 
-extension AddCartViewModel {
+extension CartValueViewModel {
     
-    func onAddToCart() -> AddCartViewModel {
-        return AddCartViewModel(id: self.id, stepValue: self.stepValue + 1)
+    func onAddToCart() -> CartValueViewModel {
+        return CartValueViewModel(id: self.id, stepValue: self.stepValue + 1)
     }
-    func onIncrement() -> AddCartViewModel {
+    func onIncrement() -> CartValueViewModel {
         guard stepValue < 10 else { return self }
-        return AddCartViewModel(id: self.id, stepValue: self.stepValue + 1)
+        return CartValueViewModel(id: self.id, stepValue: self.stepValue + 1)
     }
-    func onDecreament() -> AddCartViewModel {
+    func onDecreament() -> CartValueViewModel {
         guard stepValue > 0 else { return self }
-        return AddCartViewModel(id: self.id, stepValue: self.stepValue - 1)
+        return CartValueViewModel(id: self.id, stepValue: self.stepValue - 1)
     }
 }
